@@ -1,0 +1,20 @@
+<div [style.background]="data.color" class="taskItem {{data.completed ? 'completed' : ''}}" id="{{data.taskId}}">
+    <button (click)="onRemoveTask()">X</button>
+    <div class="taskText" *ngIf="!editing" (click)="onEdit()">
+        {{data.text}}
+    </div>
+    <input type="text" [(ngModel)]="data.text" *ngIf="editing" (keyup.enter)="onSave()">
+
+    <input type="checkbox" [(ngModel)]="data.completed" (change)="onCompleted()">
+    <div class="colorcitos">
+
+        <input [cpPresetColors]="['#fff', '#000', '#2889e9
+
+     ', '#e920e9
+
+     ', '#fff500
+
+     ', 'rgb (236,64,64)']" [(colorPicker)]="data.color" />
+
+    </div>
+</div>
