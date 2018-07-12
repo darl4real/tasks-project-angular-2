@@ -1,7 +1,6 @@
 import { Component, OnChanges } from '@angular/core';
-
 import { DataService } from './data.service';
-import { List } from './list.interface';
+import { List} from './list.interface';
 
 @Component( {
     selector: 'app-root',
@@ -22,5 +21,5 @@ export class AppComponent  {
             this.addListText = '';
         }
     }
-
+    
 }

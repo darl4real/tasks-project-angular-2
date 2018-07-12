@@ -2,19 +2,34 @@
     display: flex;
     flex-direction: row;
     padding: 10px 0;
-    justify-content: center;
+    border-right-style:solid;
+    border-right-color:white;
+    border-right-width: 4px;
+    padding-right: 0.3em;
+    margin: 5px 0;
+    background: rgba(255,255,255, 0.5);
 }
 
 .taskItem button {
     margin-right: 10px
 }
-
-.completed {
+.completed  {
     opacity: 0.6;
     color: grey;
     text-decoration: line-through;
 }
-
+.colorPicker {
+    width:1em;
+    height:1em;
+    display: inline-block;
+    border-radius: 50%;
+    border: solid 1px black;
+    margin: 0 0.5em;
+    flex-shrink: 0;
+}
 input {
-    width: 12px;
+    flex-shrink: 1;
+    border:none;
+    background: transparent;
+    font-style: italic;
 }

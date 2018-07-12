@@ -1,20 +1,14 @@
-<div [style.background]="data.color" class="taskItem {{data.completed ? 'completed' : ''}}" id="{{data.taskId}}">
-    <button (click)="onRemoveTask()">X</button>
-    <div class="taskText" *ngIf="!editing" (click)="onEdit()">
+<div class="taskItem " id="{{data.taskId}}" [style.borderColor]="data.color">
+    <button (click)="onRemoveTask()">
+    <i class="material-icons md-24">delete</i>
+  </button>
+    <input type="checkbox" [(ngModel)]="data.completed" (change)="onCompleted()">
+    <span [(colorPicker)]="data.color" class="colorPicker" [style.background]="data.color" (colorPickerChange)="dataService.save()" [cpPresetColors]="['#0033FF', '#ff6347', '#FF00CC', '#adff2f', '#fff', '#000']" [cpPresetLabel]="''"></span>
+    <i class="material-icons md-24">colorize</i>
+    <div class="taskText {{data.completed ? 'completed' : ''}}" [hidden]="editing" (click)="startEdit(editBox)">
         {{data.text}}
     </div>
-    <input type="text" [(ngModel)]="data.text" *ngIf="editing" (keyup.enter)="onSave()">
+    <input [hidden]="!editing" #editBox [(ngModel)]="data.text" (keyup.enter)="finishEdit()" (blur)="finishEdit()">
 
-    <input type="checkbox" [(ngModel)]="data.completed" (change)="onCompleted()">
-    <div class="colorcitos">
 
-        <input [cpPresetColors]="['#fff', '#000', '#2889e9
-
-     ', '#e920e9
-
-     ', '#fff500
-
-     ', 'rgb (236,64,64)']" [(colorPicker)]="data.color" />
-
-    </div>
 </div>
